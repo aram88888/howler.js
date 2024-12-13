@@ -1,5 +1,5 @@
 /*!
- *  howler.js v2.2.4
+ *  howler.js v2.2.5
  *  howlerjs.com
  *
  *  (c) 2013-2020, James Simpson of GoldFire Studios
@@ -1847,9 +1847,15 @@
         // Loop through event store and remove the passed function.
         for (i=0; i<events.length; i++) {
           var isId = (id === events[i].id);
-          if (fn === events[i].fn && isId || !fn && isId) {
+          var isFn = (fn === events[i].fn);
+          if (
+              (fn && isFn && id && isId) ||
+              (fn && isFn && !id) ||
+              (!fn && id && isId)
+          ) {
             events.splice(i, 1);
-            break;
+            i--;
+            // break;
           }
         }
       } else if (event) {
@@ -2587,10 +2593,12 @@
 })();
 
 
+/*! Spatial Plugin */
+
 /*!
  *  Spatial Plugin - Adds support for stereo and 3D audio where Web Audio is supported.
  *  
- *  howler.js v2.2.4
+ *  howler.js v2.2.5
  *  howlerjs.com
  *
  *  (c) 2013-2020, James Simpson of GoldFire Studios
