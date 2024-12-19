@@ -1,5 +1,5 @@
 /*!
- *  howler.js v2.2.5
+ *  howler.js v2.2.6
  *  howlerjs.com
  *
  *  (c) 2013-2020, James Simpson of GoldFire Studios
@@ -1235,7 +1235,7 @@
 
       // Update the volume or return the current volume.
       var sound;
-      if (typeof vol !== 'undefined' && vol >= 0 && vol <= 1) {
+      if (typeof vol !== 'undefined' && vol >= 0 /*&& vol <= 1*/) {
         // If the sound hasn't loaded, add it to the load queue to change volume when capable.
         if (self._state !== 'loaded'|| self._playLock) {
           self._queue.push({
@@ -2598,7 +2598,7 @@
 /*!
  *  Spatial Plugin - Adds support for stereo and 3D audio where Web Audio is supported.
  *  
- *  howler.js v2.2.5
+ *  howler.js v2.2.6
  *  howlerjs.com
  *
  *  (c) 2013-2020, James Simpson of GoldFire Studios
